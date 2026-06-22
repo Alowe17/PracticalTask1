@@ -1,22 +1,22 @@
 package service;
 
-import model.Numbers;
+import model.NumberPair;
 
 public class MathService {
-    public int getGcd(Numbers numbers) {
-        int max = numbers.max();
-        int min = numbers.min();
+    public int getGcd(NumberPair numberPair) {
+        int first = numberPair.first();
+        int second = numberPair.second();
 
-        while (min != 0) {
-            int temp = min;
-            min = max % min;
-            max = temp;
+        while (second != 0) {
+            int temp = second;
+            second = first % second;
+            first = temp;
         }
 
-        return max;
+        return first;
     }
 
-    public int getLcm(Numbers numbers) {
-        return numbers.max() / getGcd(numbers) * numbers.min();
+    public int getLcm(NumberPair numberPair) {
+        return numberPair.first() / getGcd(numberPair) * numberPair.second();
     }
 }

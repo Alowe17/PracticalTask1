@@ -1,9 +1,9 @@
 package parser;
 
-import model.Numbers;
+import model.NumberPair;
 
 public class NumberParser {
-    public Numbers parse (String string1, String string2) {
+    public NumberPair parse (String string1, String string2) {
         int number1;
         int number2;
 
@@ -29,6 +29,6 @@ public class NumberParser {
         if (number1 <= 0 || number2 <= 0)
             throw new IllegalArgumentException("Числа должны быть строго положительными (больше 0)!");
 
-        return new Numbers(Math.max(number1, number2), Math.min(number1, number2));
+        return new NumberPair(number1, number2);
     }
 }
